@@ -1,11 +1,11 @@
+
 const main = document.querySelector('.main');
 let result;
 let title;
 let text;
 
-const item = async () => {   
+const item =  () => {   
     main.innerHTML = '';
-    const result = await axios.post('/view', { title: title, text: text, name: name, })
     result.data.forEach(item => {
         main.innerHTML += ` 
                             <div class="div_name">
@@ -21,5 +21,17 @@ const item = async () => {
     });
     
 }
-item();
+
+
+const titles = async () => {
+    //обробляєм помилки
+    try {
+        result = await axios.post('/view', { title: title, text: text, name: name, })
+        item();
+      } catch (error) {
+        console.error(error);
+      }
+}
+
+titles()
 

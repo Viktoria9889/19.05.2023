@@ -4,7 +4,7 @@ const select = document.querySelector('.select');
 const main = document.querySelector('.main');
 
 let result;
-//let arrMain = [];
+
 
 
 const item = async () => {   
@@ -28,9 +28,13 @@ selectChoose.addEventListener('change', (ev) => {
 })
 
 const titles = async () => {
-    arrtitle = await axios.post('/view-add', { title: title, text: text, name: val, })
-    //itemsRender();
-    console.log(arrtitle.data)
+    //обробляєм помилки
+    try {
+        arrtitle = await axios.post('/view-add', { title: title, text: text, name: val, })
+        console.log(arrtitle.data)
+      } catch (error) {
+        console.error(error);
+      }
 }
 
 

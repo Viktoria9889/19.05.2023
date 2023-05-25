@@ -6,9 +6,13 @@ let result;
 
 
 const authors = async () => {
-    arrauthor = await axios.post('/add', { name: name })
-    //render()
-    console.log(arrauthor.data)
+    //обробляєм помилки
+    try {
+        arrauthor = await axios.post('/add', { name: name });
+        console.log(arrauthor.data)
+      } catch (error) {
+        console.error(error);
+      }
 }
 
 
